@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi</title>
+    <!--wow-->
+    <link rel="stylesheet" href="css/animate.css">
+    <!--animate-->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="img/taxi (3).png" type="image/x-icon">
+    <!--icon css-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--font-->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--style.css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 95%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- loader -->
+    <div class="preloader js-loader flex-center">
+        <div class="loader">
+            <svg xml:space="preserve" viewBox="0 0 254.532 254.532" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg" id="Capa_1" version="1.1" class="wheel">
+                <g>
+                    <path d="M127.267,0C57.092,0,0,57.091,0,127.266s57.092,127.266,127.267,127.266c70.174,0,127.266-57.091,127.266-127.266
+                          S197.44,0,127.267,0z M127.267,217.656c-49.922,0-90.391-40.468-90.391-90.39s40.469-90.39,90.391-90.39
+                          c49.92,0,90.39,40.468,90.39,90.39S177.186,217.656,127.267,217.656z" id="tire"></path>
+                    <path
+                        d="M127.267,48.578c-43.39,0-78.689,35.299-78.689,78.688c0,43.389,35.3,78.688,78.689,78.688
+                          c43.389,0,78.688-35.299,78.688-78.688C205.955,83.877,170.655,48.578,127.267,48.578z M195.878,122.249h-38.18
+                          c-0.78-4.825-2.686-9.275-5.435-13.079l26.954-26.954C188.679,93.112,194.771,106.996,195.878,122.249z M132.204,58.648
+                          c15.244,1.087,29.123,7.156,40.025,16.591l-26.948,26.949c-3.804-2.748-8.253-4.653-13.077-5.433V58.648z M122.329,58.648v38.106
+                          c-4.824,0.78-9.274,2.685-13.078,5.434L82.302,75.24C93.204,65.805,107.085,59.735,122.329,58.648z M75.313,82.217l26.955,26.954
+                          c-2.749,3.803-4.654,8.253-5.434,13.077h-38.18C59.761,106.996,65.853,93.113,75.313,82.217z M58.643,132.123h38.192
+                          c0.779,4.824,2.685,9.274,5.434,13.078l-27.029,27.029C65.788,161.308,59.714,147.398,58.643,132.123z M122.329,195.884
+                          c-15.285-1.09-29.197-7.188-40.113-16.666l27.035-27.035c3.804,2.749,8.254,4.654,13.078,5.434V195.884z M122.329,147.459v0.072
+                          c-2.131-0.518-4.131-1.36-5.953-2.474l0.047-0.047c-2.85-1.738-5.244-4.132-6.982-6.983l-0.046,0.046
+                          c-1.114-1.822-1.956-3.821-2.474-5.952h0.071c-0.385-1.585-0.611-3.233-0.611-4.937c0-1.704,0.227-3.352,0.611-4.937h-0.071
+                          c0.518-2.13,1.359-4.129,2.474-5.951l0.046,0.046c1.738-2.85,4.133-5.245,6.982-6.982l-0.047-0.047
+                          c1.822-1.114,3.822-1.957,5.953-2.474v0.072c1.586-0.385,3.233-0.612,4.938-0.612s3.352,0.227,4.938,0.612v-0.072
+                          c2.131,0.518,4.13,1.359,5.951,2.473l-0.047,0.047c2.851,1.737,5.245,4.132,6.983,6.982l0.046-0.046
+                          c1.115,1.822,1.957,3.822,2.475,5.953h-0.071c0.385,1.585,0.611,3.233,0.611,4.937c0,1.704-0.227,3.352-0.611,4.937h0.071
+                          c-0.518,2.131-1.359,4.131-2.475,5.953l-0.046-0.046c-1.738,2.85-4.133,5.244-6.983,6.982l0.047,0.046
+                          c-1.821,1.114-3.82,1.956-5.951,2.474v-0.072c-1.586,0.385-3.233,0.612-4.938,0.612S123.915,147.845,122.329,147.459z
+                          M132.204,195.884v-38.267c4.824-0.78,9.273-2.685,13.077-5.433l27.034,27.034C161.4,188.696,147.488,194.794,132.204,195.884z
+                          M179.292,172.23l-27.028-27.028c2.749-3.804,4.654-8.254,5.435-13.079h38.191C194.818,147.398,188.745,161.308,179.292,172.23z"
+                        id="rim"></path>
+                </g>
+            </svg>
+            <div class="road"></div>
+        </div>
+    </div>
+
+    <!-- cursor -->
+    <div id="cursor"></div>
+    <div id="stalker"></div>
+
+    <!-- back-to-top -->
+    <div class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <!-- header -->
+    <div class="navbar-fixed w-nav">
+        <div class="nav-container w-container">
+            <div class="nav-menu-wrapper">
+                <div class="nav-balancer">
+                    <a href="#" class="brand w-nav-brand w--current">
+                        <img src="img/123.svg" style="height: 30px; width: 57px;">
+                    </a>
+                </div>
+                <nav class="nav-menu w-nav-menu">
+                    <div class="menu-wrap">
+                        <div class="nav-dropdown w-dropdown">
+                            <div class="nav-dropdown-toggle w-dropdown-toggle">
+                                <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                                <div class="nav-item-title hover">demos <i class="fa-solid fa-angle-down"></i>
+                                    <nav class="nav-dropdown-list w-dropdown-list">
+                                        <div class="nav-dropdown-link-wrapper">
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link w--current">home 1</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">home 2</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">home 3</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-dropdown w-dropdown">
+                            <div class="nav-dropdown-toggle w-dropdown-toggle">
+                                <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                                <div class="nav-item-title">about us <i class="fa-solid fa-angle-down"></i>
+                                    <nav class="nav-dropdown-list w-dropdown-list">
+                                        <div class="nav-dropdown-link-wrapper">
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">about us</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">pricing</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">drivers</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">taxi</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">car rental</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">FAQ</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">Testimonials</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-dropdown w-dropdown">
+                            <div class="nav-dropdown-toggle w-dropdown-toggle">
+                                <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                                <div class="nav-item-title">services <i class="fa-solid fa-angle-down"></i>
+                                    <nav class="nav-dropdown-list w-dropdown-list">
+                                        <div class="nav-dropdown-link-wrapper">
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">services</a>
+                                            <a href="#" class="nav-dropdown-link w-dropdown-link">services details</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-link w-nav-link">taxi</a>
+                        <a href="#" class="nav-link w-nav-link">blog</a>
+                        <div class="nav-dropdown w-dropdown">
+                            <div class="nav-dropdown-toggle w-dropdown-toggle">
+                                <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                                <div class="nav-item-title">all pages <i class="fa-solid fa-angle-down"></i>
+                                    <nav class="nav-dropdown-list megamenu w-dropdown-list">
+                                        <div class="nav-dropdown-column float-start">
+                                            <div class="nav-dropdown-link-wrapper">
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link w--current">home 1
+                                                </a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">home 2</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">home 3</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">home 3</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">services</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">services
+                                                    details</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">drivers</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">drivers
+                                                    details</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">pricing</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">contact us</a>
+                                            </div>
+                                        </div>
+                                        <div class="nav-dropdown-column float-end">
+                                            <div class="nav-dropdown-link-wrapper">
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">testimonials</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">FAQ</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">car rental</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">car rental
+                                                    details</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">taxi</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">taxi details</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">blog</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">blog details</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">shop</a>
+                                                <a href="#" class="nav-dropdown-link w-dropdown-link">shop details</a>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="search-shop-con">
+                    <div class="cart-nav-wrapper wow animate__headShake">
+                        <img src="img/65616037fea2c70a0e5f2a4a_search-slim-w.svg" class="navbar-search-icon">
+                        <a href="#" class="w-commerce-commercecartopenlink cart-button w-inline-block">
+                            <img src="img/65616037c7d1f8d7a39b7125_cart-slim-w.svg">
+                            <div class="w-commerce-commercecartopenlinkcount cart-quantity">0</div>
+                        </a>
+                    </div>
+                    <a href="#" class="primary-button nav-style w-button">Book your ride</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-shadow"></div>
+    </div>
+
+    <!-- banner -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/slide1.jpg">
+                <div class="text-banner text-center white-text wow animate__fadeInUp">
+                    <h1>fast & safe service</h1>
+                    <span>WE PICK UP & DROP YOU ON TIME BY BEST TARIFF
+                    </span>
+                    <a href="#" class="primary-button nav-style w-button">Book Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/slide2.jpg">
+                <div class="text-banner text-center white-text wow animate__fadeInUp">
+                    <h1>fast & safe service</h1>
+                    <span>WE PICK UP & DROP YOU ON TIME BY BEST TARIFF
+                    </span>
+                    <a href="#" class="primary-button nav-style w-button">Book Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/slide3.jpg">
+                <div class="text-banner text-center white-text wow animate__fadeInUp">
+                    <h1>fast & safe service</h1>
+                    <span>WE PICK UP & DROP YOU ON TIME BY BEST TARIFF
+                    </span>
+                    <a href="#" class="primary-button nav-style w-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- about us -->
+    <div class="elementor-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="img-box4">
+                        <div class="img1">
+                            <img src="img/about_4_1-4-1.jpg">
+                        </div>
+                        <div class="img2">
+                            <img src="img/about_4_2-4-1.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="title-area text-left">
+                        <span class="sub-title title-selector wow animate__fadeInDown">
+                            More About Us
+                        </span>
+                        <h2 class="sec-title subtitle-selector wow animate__fadeInDown">
+                            Our Mission is Save
+                            <br>
+                            People From Pollution
+                        </h2>
+                        <p class="mt-n2 mb-30 text-md-start">
+                            Brand team building results after premium web-readiness value web enabled e-business engage
+                            web enabled strategic…
+                        </p>
+                        <div class="experience-list">
+                            <div class="th-experience">
+                                <h3 class="experience-year">
+                                    <span class="counter-number">25+</span>
+                                </h3>
+                                <p class="experience-text wow animate__zoomIn">Years Experience</p>
+                            </div>
+                            <div class="dots-list">
+                                <ul>
+                                    <li>Eamlessly conceptualize go forward total linkage</li>
+                                    <li>Whiteboard multifuional applications rather than</li>
+                                    <li>Applications rather than lived reliable functionale</li>
+                                    <li>Leverage other quality ideas synestic outsourcing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper left">
+                        <a href="#" class="primary-button nav-style w-button">Get More Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- works -->
+    <div class="elementor-top-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-area text-center wow animate__slideInDown">
+                        <span class="sub-title title-selector">
+                            Our Work Process
+                            <span class="double-line"></span>
+                        </span>
+                        <h2 class="sec-title subtitle-selector">How We Works</h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="process-box-wrap">
+                        <div class="process-box">
+                            <div class="process-box_icon">
+                                <i class="fa-solid fa-shield-heart"></i>
+                                <span class="process-box_num">01</span>
+                            </div>
+                            <h3 class="process-box_title wow animate__zoomIn">SAFE GUARANTEE</h3>
+                            <p class="process-box_text">Extensible for web iterate process before meta services impact
+                                with olisticly enable client.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="process-box-wrap">
+                        <div class="process-box style2">
+                            <div class="process-box_icon">
+                                <i class="fa-solid fa-car"></i>
+                                <span class="process-box_num">02</span>
+                            </div>
+                            <h3 class="process-box_title wow animate__zoomIn">Fastest Pickups</h3>
+                            <p class="process-box_text">Extensible for web iterate process before meta services impact
+                                with olisticly enable client.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="process-box-wrap">
+                        <div class="process-box">
+                            <div class="process-box_icon">
+                                <i class="fa-solid fa-bridge"></i>
+                                <span class="process-box_num">03</span>
+                            </div>
+                            <h3 class="process-box_title wow animate__zoomIn">Quick Rides</h3>
+                            <p class="process-box_text">Extensible for web iterate process before meta services impact
+                                with olisticly enable client.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="process-box-wrap">
+                        <div class="process-box style2">
+                            <div class="process-box_icon process-2">
+                                <i class="fa-solid fa-user-shield"></i>
+                                <span class="process-box_num">04</span>
+                            </div>
+                            <h3 class="process-box_title wow animate__zoomIn">Cleared Drivers</h3>
+                            <p class="process-box_text">Extensible for web iterate process before meta services impact
+                                with olisticly enable client.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- services -->
+    <div class="service-area bg py-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-heading text-center wow animate__slideInDown">
+                        <span class="site-title-tagline">
+                            Services
+                        </span>
+                        <h2 class="site-title">Our Best Services For You</h2>
+                        <div class="heading-divider"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/01.jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/taxi-booking-1.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">Online Booking</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/02 (1).jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/city-taxi.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">City Transport</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/03 (1).jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/airport.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">Airport Transport</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/04 (1).jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/business.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">Business Transport</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/05 (1).jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/taxi-2.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">Regular Transport</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="img/06.jpg">
+                        </div>
+                        <div class="service-icon wow animate__rotateIn">
+                            <img src="img/taxi.svg">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title wow animate__zoomIn">
+                                <a href="#">Tour Transport</a>
+                            </h3>
+                            <p class="service-text">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some form by injected.
+                            </p>
+                            <div class="service-arrow">
+                                <button class="button">
+                                    Read More
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- team members -->
+    <div class="elementor-top-section">
+        <div class="container">
+            <div class="elementor-widget-wrap display-flex">
+                <div class="col-12">
+                    <div class="title-area text-center wow animate__slideInDown">
+                        <span class="sub-title title-selector">
+                            Team Members
+                            <span class="double-line"></span>
+                        </span>
+                        <h2 class="sec-title subtitle-selector">OUR Drivers</h2>
+                    </div>
+                </div>
+                <!-- <button type="button" class="slick-prev slick-arrow">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button> -->
+                <div class="col-lg-4">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="img/team_2_1-7-1.jpg">
+                            <div class="team-content">
+                                <h3 class="team-title wow animate__zoomIn">
+                                    <a href="#">Kevin Martin</a>
+                                </h3>
+                                <span class="team-desig">Senior Driver</span>
+                            </div>
+                        </div>
+                        <div class="th-social">
+                            <a href="#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="img/team_2_2-7-1.jpg">
+                            <div class="team-content">
+                                <h3 class="team-title wow animate__zoomIn">
+                                    <a href="#">Jonas Malini</a>
+                                </h3>
+                                <span class="team-desig">Junior Driver</span>
+                            </div>
+                        </div>
+                        <div class="th-social">
+                            <a href="#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-box">
+                        <div class="team-img">
+                            <img src="img/team_2_3-7-1.jpg">
+                            <div class="team-content">
+                                <h3 class="team-title wow animate__zoomIn">
+                                    <a href="#">Aiden Samuel</a>
+                                </h3>
+                                <span class="team-desig">Expert Driver</span>
+                            </div>
+                        </div>
+                        <div class="th-social">
+                            <a href="#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- counter -->
+    <div class="counter-bgimage bgimage-property counter-section-space white-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="center">
+                        <img src="img/64x64x10.png" alt="">
+                    </div>
+                    <p class="center counter-num count counter" data-speed="1000">1201</p>
+                    <h4 class="center wow animate__fadeInUp">packages</h4>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="center">
+                        <img src="img/64x64x11.png" alt="">
+                    </div>
+                    <p class="center counter-num count counter" data-speed="1000">543</p>
+                    <h4 class="center wow animate__fadeInUp">awards</h4>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="center">
+                        <img src="img/64x64x12.png" alt="">
+                    </div>
+                    <p class="center counter-num count counter" data-speed="1000">343</p>
+                    <h4 class="center wow animate__fadeInUp">clients</h4>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="center">
+                        <img src="img/64x64x13.png" alt="">
+                    </div>
+                    <p class="center counter-num count counter" data-speed="1000">2010</p>
+                    <h4 class="center wow animate__fadeInUp">likes</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pick-up & drop -->
+    <div class="section-space section-bg-2">
+        <div class="container">
+            <h2 class="center h2-bottom wow animate__slideInDown">pick-up & drop</h2>
+            <div class="row d-flex">
+                <div class="col-md-12 column-center no-padding d-flex">
+                    <div class="col-md-4 col-sm-6 common-res-bottom-1">
+                        <div class="luxury-bgimage bgimage-property wow animate__fadeInLeft">
+                            <div class="luxury-center">
+                                <div class="distab">
+                                    <div class="left distab-cell-middle">
+                                        <img src="img/80x80x1.png" alt="">
+                                    </div>
+                                    <div class="left distab-cell-middle luxury-left-pad">
+                                        <h4 class="left">
+                                            <a href="#">luxury cars</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="left luxury-line-pad">
+                                    <img src="img/luxury_line.png" alt="">
+                                </div>
+                                <div class="distab">
+                                    <div class="left distab-cell-middle">
+                                        <img src="img/80x80x2.png" alt="">
+                                    </div>
+                                    <div class="left distab-cell-middle luxury-left-pad">
+                                        <h4 class="left">
+                                            <a href="#">fast & safe</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="left luxury-line-pad">
+                                    <img src="img/luxury_line.png" alt="">
+                                </div>
+                                <div class="distab">
+                                    <div class="left distab-cell-middle">
+                                        <img src="img/80x80x3.png" alt="">
+                                    </div>
+                                    <div class="left distab-cell-middle luxury-left-pad">
+                                        <h4 class="left">
+                                            <a href="#">best tariff</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-6">
+                        <div class="luxury-text-top wow animate__fadeInRight">
+                            <div class="left image-bottom">
+                                <img src="img/750x340.jpg" class="img-responsive image-center">
+                            </div>
+                            <div class="text">
+                                <h4 class="left h4-bottom">
+                                    <a href="#">on time pick-up & drop by experienced cab drivers</a>
+                                </h4>
+                                <p class="left">Donec varius sodales orci. Class aptent taciti sociosqu ad litora
+                                    torquent per conubia nostra, per inceptos himenaeos. Aenean a arcu ullamcorper eros
+                                    viverra suscipit. Donec varius </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="elementor-top-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-area text-center wow animate__slideInDown">
+                        <span class="sub-title title-selector">
+                            Goodride
+                            <span class="double-line"></span>
+                        </span>
+                        <h2 class="sec-title subtitle-selector">News & FAQ</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="faq-content">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header wow animate__headShake">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                        Did You Lost Something?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                                        sed diam voluptua.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header wow animate__headShake">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                        How To Contact Us?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Phasellus non tincidunt enim. Ut porttitor justo non purus vehicula, id rhoncus
+                                        velit cursus. Nunc mattis, sem id dapibus semper, purus tortor posuere massa, a
+                                        interdum massa metus ac tellus. Donec vestibulum sed dolor id rutrum.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header wow animate__headShake">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                        How to Download Taxi App?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Praesent enim nulla, fermentum in dapibus at, bibendum
+                                        eu elit. Praesent eu diam orci. Mauris fermentum vel lorem eu maximus. Praesent
+                                        lobortis metus vel congue sodales.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header wow animate__headShake">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                        aria-controls="flush-collapseFour">
+                                        How to Select a Cab?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Phasellus eu massa et diam dignissim imperdiet eget
+                                        vitae magna. Duis non massa malesuada, scelerisque risus vel, malesuada justo.
+                                        Nullam tincidunt lacus sed scelerisque dictum. Integer cursus at eros quis
+                                        suscipit. Duis lacinia gravida augue, luctus consequat odio sollicitudin in.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header wow animate__headShake">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                        aria-controls="flush-collapseFive">
+                                        How to Select a driver?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Donec faucibus efficitur mi, vitae sodales elit
+                                        condimentum ac. Vivamus sagittis, lorem a facilisis pulvinar, augue purus
+                                        vulputate nibh, id consectetur quam nunc nec dolor.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 ps-5">
+                    <div class="entry-featured">
+                        <div class="featured-inner featured-image">
+                            <img src="img/002-270x180.jpg">
+                        </div>
+                    </div>
+                    <div class="entry-main" style="width: 270px; height: 282px;">
+                        <div class="entry-header">
+                            <div class="entry-meta">
+                                <div class="entry-posted-on wow animate__zoomIn">
+                                    <a href="#">
+                                        06/08/2017
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="h4 entry-title">
+                                <a href="#">Introducing Good Ride mobile application for ios and android</a>
+                            </h2>
+                        </div>
+                        <div class="entry-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue
+                            sagittis ligula, ut porta…</div>
+                    </div>
+                </div>
+                <div class="col-3 ps-5">
+                    <div class="entry-featured">
+                        <div class="featured-inner featured-image">
+                            <img src="img/006-270x180.jpg">
+                        </div>
+                    </div>
+                    <div class="entry-main" style="width: 270px; height: 282px;">
+                        <div class="entry-header">
+                            <div class="entry-meta">
+                                <div class="entry-posted-on wow animate__zoomIn">
+                                    <a href="#">
+                                        06/07/2017
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="h4 entry-title">
+                                <a href="#">Hollywood movie stars talking about Good Ride services</a>
+                            </h2>
+                        </div>
+                        <div class="entry-summary">
+                            Pellentesque dui orci, scelerisque nec eros at, cursus iaculis metus. Fusce et convallis
+                            mauris.…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- testimonial -->
+    <div class="testimonial-area py-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-heading text-center wow animate__slideInDown">
+                        <span class="site-title-tagline">
+                            <i class="flaticon-drive"></i>
+                            Testimonials
+                        </span>
+                        <h2 class="site-title text-white">
+                            What Our Client
+                            <span>Say's</span>
+                        </h2>
+                        <div class="heading-divider"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mx-auto">
+                    <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item cloned">
+                                    <div class="testimonial-single">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-author-img">
+                                                <img src="img/02.jpg">
+                                            </div>
+                                            <div class="testimonial-author-info wow animate__zoomIn">
+                                                <h4>Gordo Novak</h4>
+                                                <p>Customer</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-quote">
+                                            <span class="testimonial-quote-icon">
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </span>
+                                            <p>
+                                                There are many variations of words suffered available to the have
+                                                majority but the majority
+                                                suffer to alteration injected hidden the middle text.</p>
+                                        </div>
+                                        <div class="testimonial-rate">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mx-auto">
+                    <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item cloned">
+                                    <div class="testimonial-single">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-author-img">
+                                                <img src="img/03.jpg">
+                                            </div>
+                                            <div class="testimonial-author-info wow animate__zoomIn">
+                                                <h4>Reid Butt</h4>
+                                                <p>Customer</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-quote">
+                                            <span class="testimonial-quote-icon">
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </span>
+                                            <p>
+                                                There are many variations of words suffered available to the have
+                                                majority but the majority
+                                                suffer to alteration injected hidden the middle text.</p>
+                                        </div>
+                                        <div class="testimonial-rate">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mx-auto">
+                    <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item cloned">
+                                    <div class="testimonial-single">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-author-img">
+                                                <img src="img/04.jpg">
+                                            </div>
+                                            <div class="testimonial-author-info wow animate__zoomIn">
+                                                <h4>Parker Jime</h4>
+                                                <p>Customer</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-quote">
+                                            <span class="testimonial-quote-icon">
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </span>
+                                            <p>
+                                                There are many variations of words suffered available to the have
+                                                majority but the majority
+                                                suffer to alteration injected hidden the middle text.</p>
+                                        </div>
+                                        <div class="testimonial-rate">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mx-auto">
+                    <div class="testimonial-slider owl-carousel owl-theme owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item cloned">
+                                    <div class="testimonial-single">
+                                        <div class="testimonial-content">
+                                            <div class="testimonial-author-img">
+                                                <img src="img/05.jpg">
+                                            </div>
+                                            <div class="testimonial-author-info wow animate__zoomIn">
+                                                <h4>Heruli Nez</h4>
+                                                <p>Customer</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-quote">
+                                            <span class="testimonial-quote-icon">
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </span>
+                                            <p>
+                                                There are many variations of words suffered available to the have
+                                                majority but the majority
+                                                suffer to alteration injected hidden the middle text.</p>
+                                        </div>
+                                        <div class="testimonial-rate">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- form -->
+    <div class="elementor-top-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="title-area text-left">
+                        <span class="sub-title title-selector wow animate__fadeInDown">
+                            About our Company
+                        </span>
+                        <h2 class="sec-title subtitle-selector wow animate__slideInLeft">
+                            Our Easy Booking Form
+                            <br>
+                            To Get Best Vehicle
+                        </h2>
+                    </div>
+                    <div
+                        class="elementor-element elementor-element-3206f93d elementor-widget elementor-widget-text-editor">
+                        <div class="about-quote mb-40">
+                            <p>
+                                Interactively maintain holistic best practices and user fully researched commerce
+                                installed base internal
+                            </p>
+                            <cite class="name">David Smith</cite>
+                            <span class="desig wow animate__zoomIn">
+                                Head Of Idea
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-xl-start">
+                            <div class="info-card wow animate__slideInUp">
+                                <div class="info-card_icon">
+                                    <i class="fa-solid fa-phone-flip"></i>
+                                </div>
+                                <div class="info-card_content">
+                                    <p class="info-card_text">Call for book an order:</p>
+                                    <a href="#" class="info-card_link">
+                                        +256 315 3215
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h4 class="left contact-heading-bottom wow animate__fadeInDown">contact</h4>
+                    <div class="contact-div">
+                        <form id="contact-form">
+                            <div class="clearfix">
+                                <div class="form-div form-bottom-1">
+                                    <input class="form-control form-text" id="name" type="text" name="name" value=""
+                                        placeholder="Please Enter Name" required="" fdprocessedid="nwx3sd">
+                                </div>
+                                <div class="form-div form-bottom-1">
+                                    <input class="form-control form-text" id="email" type="email" name="email" value=""
+                                        placeholder="Please Enter Email" required="" fdprocessedid="rts0qi">
+                                </div>
+                                <div class="form-div form-bottom-1">
+                                    <input class="form-control form-text" id="tel-432" type="tel" name="tel-432"
+                                        value="" placeholder="Please Enter Phone number" required=""
+                                        fdprocessedid="o77ab">
+                                </div>
+                                <div class="form-div-1">
+                                    <textarea class="form-control form-text" id="message" name="message"
+                                        placeholder="Message" rows="4" required=""></textarea>
+                                </div>
+                                <div class="distab submit-reset">
+                                    <div class="distab-cell-middle submit-right-pad">
+                                        <input type="submit" class="btn-1" id="submit" name="submit" value="SUBMIT"
+                                            fdprocessedid="mm12vn">
+                                    </div>
+                                    <input type="reset" class="btn-1 distab-cell-middle cancel" name="clear"
+                                        value="RESET">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row justify-content-center mb-60 wow animate__slideInRight">
+                <div class="col-xl-3 col-md-12">
+                    <div class="footer-brand-wrapper-main">
+                        <div class="footer-logo-wrapper-main">
+                            <a href="#" class="footer-brand-2 w-nav-brand">
+                                <img src="img/654568328d69d489552c75e7_taxi.svg" class="footer-logo" width="56px"
+                                    height="29px">
+                            </a>
+                        </div>
+                        <p class="footer-brand-description-main">We offer competitive rates for both our taxi and car
+                            rental services.</p>
+                        <div class="footer-contact-wrapper div-block-15">
+                            <div class="footer-contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <a href="#" class="footer-link-main">mail@example.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-12">
+                    <div class="footer-links-wrapper-main">
+                        <h6 class="white-text mb-15">Demos</h6>
+                        <a href="#" class="footer-link-main w--current">Home 1</a>
+                        <a href="#" class="footer-link-main">Home 2</a>
+                        <a href="#" class="footer-link-main">Home 3</a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-12">
+                    <div class="footer-links-wrapper-main">
+                        <h6 class="white-text mb-15">About</h6>
+                        <a href="#" class="footer-link-main">About Us</a>
+                        <a href="#" class="footer-link-main">Drivers</a>
+                        <a href="#" class="footer-link-main">Pricing</a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-12">
+                    <div class="footer-links-wrapper-main">
+                        <h6 class="white-text mb-15">Services</h6>
+                        <a href="#" class="footer-link-main w--current">Taxi</a>
+                        <a href="#" class="footer-link-main">Car Rental</a>
+                        <a href="#" class="footer-link-main">All Services</a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-12">
+                    <div class="footer-links-wrapper-cta">
+                        <a href="#" class="footer-link-main primary">(309) 077-0007</a>
+                        <p class="footer-brand-description-main">Available 24/7, feel free to contact us!</p>
+                        <div class="button-wrapper-footer">
+                            <a href="#" class="primary-button w-button">Book your ride now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-wrapper-main">
+                <div class="footer-social-icons-wrapper-main wow animate__bounce">
+                    <a href="#" class="footer-social-icon-main">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="footer-social-icon-main">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer-social-icon-main">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+                <div class="footer-rights-wrapper-main wow animate__headShake">
+                    <div class="footer-copyright-main">
+                        © Taxi 128. All Rights Reserved 2024.
+                        <a href="#" class="footer-copyright-main">Licensing</a>
+                    </div>
+                    <div class="footer-rights-main">
+                        <a href="#" class="footer-copyright-link">Webflow Templates</a>
+                        by
+                        <a href="#" class="footer-copyright-link">128.digital. </a>
+                    </div>
+                    <div class="footer-rights-main">
+                        Powered by
+                        <a href="#" class="footer-copyright-link">Webflow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/jquery.preloadinator.min.js"></script>
+
+    <!-- loader -->
+    <script>
+        $(".js-loader").preloadinator({
+            scroll: false,
+            minTime: 2000,
+            animation: 'fadeOut',
+            animationDuration: 400,
+            function() { },
+            afterEnableScroll: function () { },
+            afterRemovePreloader: function () { },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <!-- counter -->
+    <script>
+        (() => {
+            const counter = document.querySelectorAll('.counter');
+            // covert to array
+            const array = Array.from(counter);
+            // select array element
+            array.map((item) => {
+                // data layer
+                let counterInnerText = item.textContent;
+
+                let count = 1;
+                let speed = item.dataset.speed / counterInnerText
+                function counterUp() {
+                    item.textContent = count++
+                    if (counterInnerText < count) {
+                        clearInterval(stop);
+                    }
+                }
+                const stop = setInterval(() => {
+                    counterUp();
+                }, speed);
+            })
+        })()
+    </script>
+    <!-- back-to-top -->
+    <script>
+        var $backToTop = $(".back-to-top");
+        $backToTop.hide();
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 100) {
+                $backToTop.fadeIn();
+            } else {
+                $backToTop.fadeOut();
+            }
+        });
+
+        $backToTop.on('click', function (e) {
+            $("html, body").animate({ scrollTop: 0 }, 500);
+        });
+    </script>
+    <!-- cursor -->
+    <script>
+        const cursor = document.getElementById("cursor");
+        const stalker = document.getElementById("stalker");
+        document.addEventListener("mousemove", (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            cursor.style.transform = `translate(${x}px, ${y}px)`;
+            stalker.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+    </script>
+</body>
+
+</html>
